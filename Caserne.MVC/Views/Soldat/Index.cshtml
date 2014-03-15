@@ -1,0 +1,109 @@
+﻿@model IEnumerable<Caserne.Domaine.Entities.Soldat>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Soldat: Index</h2>
+
+
+<h3>Pilotes: </h3>  
+@if (ViewBag.NbrPilotes != 0)
+{
+<table>
+    <tr>
+        <th>Nom </th>
+        <th>Prenom </th>
+        <th>Reserve </th>
+        <th>DateInscription</th>
+        <th>AvionId</th>
+        <th>NbHeuresDeVol</th>
+    </tr>
+    @foreach (var item in ViewBag.pilotes)
+    {
+        <tr>
+            <td>@item.Nom </td> 
+            <td>@item.Prenom </td> 
+            <td>@item.Reserve </td> 
+            <td>@item.DateInscription</td>
+            <td>@item.AvionId</td>
+            <td>@item.NbHeuresDeVol</td>  
+        </tr>
+    }
+</table>
+}    
+<hr />
+    
+<h3>Fantassins: </h3>
+
+@if (ViewBag.NbrFantassins != 0) 
+{ 
+<table>
+    <tr>
+        <th>Nom </th>
+        <th>Prenom </th>
+        <th>Reserve </th>
+        <th>DateInscription</th>
+        <th>Arme</th>
+        <th>NbMunition</th>
+    </tr>
+    @foreach (var item in ViewBag.fantassins)
+    {
+        <tr>
+            <td>@item.Nom </td>
+            <td>@item.Prenom </td>
+            <td>@item.Reserve </td>
+            <td>@item.DateInscription</td>
+            <td>@item.Arme</td>
+            <td>@item.NbMunition</td>
+        </tr>
+    }
+</table>
+}
+<hr />
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<hr />
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prenom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Reserve)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateInscription)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Prenom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Reserve)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateInscription)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
