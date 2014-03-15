@@ -1,0 +1,36 @@
+﻿@model Caserne.Domaine.Entities.Avion
+
+@{
+    ViewBag.Title = "Avion Delete";
+}
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+    <h2>@ViewBag.Message</h2>
+</hgroup>
+
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Avion</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Constructeur)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Constructeur)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Modele)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Modele)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

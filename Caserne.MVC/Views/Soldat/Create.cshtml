@@ -1,0 +1,67 @@
+﻿@model Caserne.Domaine.Entities.Soldat
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Soldat</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Nom)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Nom)
+            @Html.ValidationMessageFor(model => model.Nom)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Prenom)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Prenom)
+            @Html.ValidationMessageFor(model => model.Prenom)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Reserve)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Reserve)
+            @Html.ValidationMessageFor(model => model.Reserve)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DateInscription)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DateInscription)
+            @Html.ValidationMessageFor(model => model.DateInscription)
+
+        </div>
+        
+        <div class="editor-field">
+            @Html.Label("Type de soldat")
+            <label>@Html.RadioButton("isFantassin", "true", true) Fantassin</label>
+            <label>@Html.RadioButton("isFantassin", "false", false) Pilote</label>   
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,32 @@
+﻿@model Caserne.Domaine.Entities.Avion
+
+@{
+    ViewBag.Title = "Avion Details";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+    <h2>@ViewBag.Message</h2>
+</hgroup>
+
+<fieldset>
+    <legend>Avion</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Constructeur)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Constructeur)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Modele)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Modele)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
